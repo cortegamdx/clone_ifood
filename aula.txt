@@ -1,1 +1,1 @@
-3.17. Mapeando relacionamento com @ManyToOne
+3.18. A anotação @JoinColumn
