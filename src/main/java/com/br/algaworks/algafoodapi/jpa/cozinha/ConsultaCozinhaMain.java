@@ -1,4 +1,4 @@
-package com.br.algaworks.algafoodapi.jpa;
+package com.br.algaworks.algafoodapi.jpa.cozinha;
 
 import com.br.algaworks.algafoodapi.AlgafoodApiApplication;
 import com.br.algaworks.algafoodapi.domain.model.Cozinha;
@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 
 import java.util.List;
 
-public class BuscaCozinhaMain {
+public class ConsultaCozinhaMain {
     public static void main(String[] args) {
         ApplicationContext context = new SpringApplicationBuilder(AlgafoodApiApplication.class)
                 .web(WebApplicationType.NONE)
@@ -16,7 +16,8 @@ public class BuscaCozinhaMain {
 
         CadastroCozinha bean = context.getBean(CadastroCozinha.class);
 
-        Cozinha buscar = bean.buscar(1L);
-        System.out.printf("%d - %s\n",buscar.getId(),buscar.getNome());
+        List<Cozinha> listar = bean.listar();
+
+        listar.forEach(c -> System.out.println(c.getNome()));
     }
 }

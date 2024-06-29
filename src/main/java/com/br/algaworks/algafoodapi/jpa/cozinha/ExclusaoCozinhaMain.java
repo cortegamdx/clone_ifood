@@ -1,4 +1,4 @@
-package com.br.algaworks.algafoodapi.jpa;
+package com.br.algaworks.algafoodapi.jpa.cozinha;
 
 import com.br.algaworks.algafoodapi.AlgafoodApiApplication;
 import org.springframework.boot.WebApplicationType;
