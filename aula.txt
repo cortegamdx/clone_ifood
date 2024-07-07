@@ -1,1 +1,1 @@
-3.18. A anotação @JoinColumn
+4.13. Implementando content negotiation para retornar JSON ou XML

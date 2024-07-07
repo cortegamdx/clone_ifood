@@ -3,6 +3,7 @@ package com.br.algaworks.algafoodapi.infrastructure.repository;
 import com.br.algaworks.algafoodapi.domain.model.FormaPagamento;
 import com.br.algaworks.algafoodapi.domain.repository.FormaPagamentoRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -24,11 +25,13 @@ public class FormaPagamentoRepositoryImpl implements FormaPagamentoRepository {
     }
 
     @Override
+    @Transactional
     public FormaPagamento salvar(FormaPagamento formaPagamento) {
         return manager.merge(formaPagamento);
     }
 
     @Override
+    @Transactional
     public void remover(Long id) {
         FormaPagamento formaPagamento = buscar(id);
         manager.remove(formaPagamento);

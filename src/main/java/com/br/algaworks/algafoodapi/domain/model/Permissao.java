@@ -16,7 +16,6 @@ public class Permissao {
     private String nome;
     @Column
     private String descricao;
-    @OneToMany
-    @JoinColumn(name = "cod_gru")
-    private Grupo grupo;
+
+
 }

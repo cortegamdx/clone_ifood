@@ -16,7 +16,7 @@ public class FormaPagamento {
     private Long id;
 
     @Column
-    private String decricao;
+    private String descricao;
 
 
 }
