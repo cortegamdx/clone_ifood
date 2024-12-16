@@ -1,1 +1,2 @@
-4.13. Implementando content negotiation para retornar JSON ou XML
+4.29. Desafio: modelando e implementando a consulta de recursos de restaurantes
+
