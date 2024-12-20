@@ -53,7 +53,7 @@ public class CozinhaController {
 
     @PostMapping
     public ResponseEntity<Cozinha> salvar(@RequestBody Cozinha cozinha) {
-        cozinha = repository.salvar(cozinha);
+        cozinha = service.salvar(cozinha);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(cozinha);
     }

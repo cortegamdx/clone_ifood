@@ -1,2 +1,2 @@
-4.29. Desafio: modelando e implementando a consulta de recursos de restaurantes
+4.32. Desafio: implementando serviços REST de cidades e estados
 

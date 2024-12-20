@@ -16,7 +16,7 @@ public class RestauranteRepositoryImpl implements RestauranteRepository {
 
     @Override
     public List<Restaurante> listar() {
-        return entityManager.createQuery("from restaurante",Restaurante.class).getResultList();
+        return entityManager.createQuery("from Restaurante",Restaurante.class).getResultList();
     }
 
     @Override
