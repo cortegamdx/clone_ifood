@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -24,28 +25,12 @@ public class RestauranteController {
 
     @PostMapping
     public ResponseEntity<?> salvar(@RequestBody Restaurante restaurante) {
-        try {
-
-            restaurante = service.salvar(restaurante);
-
-            return ResponseEntity.status(HttpStatus.CREATED).body(restaurante);
-
-        } catch (EntidadeNaoEncontradaException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+            return ResponseEntity.status(HttpStatus.CREATED).body(service.salvar(restaurante));
 
     }
     @PutMapping("{id}")
     public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody Restaurante restaurante){
-        try{
-            restaurante = service.atualizar(id,restaurante);
-
-            return  ResponseEntity.status(HttpStatus.CREATED).body(restaurante);
-        }catch (EntidadeNaoEncontradaException e){
-            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }catch (RestauranteNaoExisteException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        }
+            return  ResponseEntity.status(HttpStatus.CREATED).body(service.atualizar(id,restaurante));
 
 
     }
@@ -70,5 +55,29 @@ public class RestauranteController {
         }
 
         return ResponseEntity.ok(restaurante);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> atualizarParcial(@PathVariable("id") Long restauranteId, @RequestBody Map<String,Object> campos){
+
+
+        Restaurante restauranteAtual = service.buscar(restauranteId);
+
+        if(restauranteAtual== null){
+            return ResponseEntity.notFound().build();
+        }
+
+        merge(campos,restauranteAtual);
+
+
+        return ResponseEntity.ok(atualizar(restauranteId,restauranteAtual));
+    }
+
+    private static void merge(Map<String, Object> campos,Restaurante restauranteDestino) {
+        campos.forEach((k, v) -> {
+
+
+
+        });
     }
 }

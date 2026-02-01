@@ -19,5 +19,8 @@ public class Cozinha {
 
 
 
+    public void testeMetodo(){
+        System.out.println("Metodo de teste");
+    }
 
 }

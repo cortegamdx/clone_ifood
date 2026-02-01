@@ -7,21 +7,19 @@ import com.br.algaworks.algafoodapi.domain.model.Cozinha;
 import com.br.algaworks.algafoodapi.domain.model.Restaurante;
 import com.br.algaworks.algafoodapi.domain.repository.CozinhaRepository;
 import com.br.algaworks.algafoodapi.domain.repository.RestauranteRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@RequiredArgsConstructor
 @Service
 public class CadastroRestauranteService {
 
 
-    @Autowired
-    private RestauranteRepository repository;
+    private final RestauranteRepository repository;
 
-    @Autowired
-    private CozinhaRepository cozinhaRepository;
+    private final CozinhaRepository cozinhaRepository;
 
     public Restaurante buscar(Long id) {
         return  repository.buscar(id);
@@ -52,7 +50,7 @@ public class CadastroRestauranteService {
         }
         //cozinha não existe
         Long cozinhaId = restauranteAtualizado.getCozinha().getId();
-        Cozinha cozinha = verificaCozinhaExiste(cozinhaId);
+        verificaCozinhaExiste(cozinhaId);
 
         BeanUtils.copyProperties(restauranteAtualizado,restauranteAtual,"id");
 

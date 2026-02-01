@@ -2,6 +2,7 @@ package com.br.algaworks.algafoodapi.infrastructure.repository;
 
 import com.br.algaworks.algafoodapi.domain.model.Cidade;
 import com.br.algaworks.algafoodapi.domain.repository.CidadeRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -9,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Component
 public class CidadeRepositoryImpl implements CidadeRepository {
 
     @PersistenceContext
